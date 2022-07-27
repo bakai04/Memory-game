@@ -1,0 +1,40 @@
+.authorization {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    .authorization__inner {
+        margin: 0 auto;
+        text-align: center;
+        width: fit-content;
+        box-shadow: 10px 15px 10px -15px #111;
+        padding: 50px;
+        border-radius: 5px;
+        background-color: #FFF;
+        .authorization__title{
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        .authorization__form{
+            display: flex;
+            flex-direction: column;
+            .form__name{
+                width: 250px;
+                height: 40px;
+                padding-left: 10px;
+                font-size: 16px;
+                &::placeholder{
+                    font-size: 16px;
+                }
+            } 
+            .startBtn{
+                width: 250px;
+                height: 40px;
+                padding-left: 10px;
+                font-size: 16px;
+                margin-top: 10px;
+            } 
+        }
+    }
+}

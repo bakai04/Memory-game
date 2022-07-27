@@ -1,0 +1,83 @@
+body {
+    background: #F17563;
+    font-family: Open Sans;
+    font-size: 50px;
+  	color: #222;
+}
+.game{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+label {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+    position: relative;
+    width: 16.6666%;
+    height: 200px;
+    cursor: pointer;
+    input {
+        display: none;
+    }
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+    .front,.back{
+        position: absolute;
+        width: fit-content;
+        background: #FFF;
+        backface-visibility: hidden;
+        border-radius: 2px;
+        img{
+            width: 100%;
+            height: auto;         
+        }
+    }
+    .back {
+        background: #FFF;
+        -webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+    }
+}
+    .card .back {
+        background: #FFF;
+        -webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+    }
+
+label:hover .card {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
+
+
+
+:checked + .card {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+    transform: rotateX(160deg);
+    -webkit-transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+}
+.removeCard{
+    opacity: 0.5;
+}
+.blocked-cards{
+    opacity: 0;
+}

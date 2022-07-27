@@ -1,0 +1,16 @@
+@import "./pages/authorization.scss";
+@import "./pages/Game.scss";
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: #eee;
+	min-height: 100%;
+}
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
