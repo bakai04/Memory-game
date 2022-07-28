@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-function Card({card, isCardBlocked , checkOpenedCards ,openedCard,setOpenedCard}){
-  const [isCardOpening, setIsCardOpening]=useState(openedCard===card.id);
-  const onClickCard = (e)=>{
+function Card({index, card, isCardBlocked, isCardOpened, onClickCard, checkOpenedCards, openedCard, setOpenedCard}){
+
+  const handleClick = (e)=>{
     if(e.target.checked){
       checkOpenedCards(card.id);
     }else{
@@ -11,7 +11,7 @@ function Card({card, isCardBlocked , checkOpenedCards ,openedCard,setOpenedCard}
   }
   return (
     <label className={isCardBlocked? "blocked-cards" : ""}>
-        <input type="checkbox" checked={isCardOpening} onClick={()=>{setIsCardOpening(!isCardOpening)}} className={card.id} onChange={onClickCard}/>
+        <input type="checkbox" checked={isCardOpened} onClick={()=>{onClickCard(index)}} className={card.id} onChange={handleClick}/>
         <div className="card">
             <div className="front">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/codepen-logo.png"></img>

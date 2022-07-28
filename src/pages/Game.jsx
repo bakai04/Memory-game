@@ -17,17 +17,31 @@ function Game({usersData, setUsersData}) {
  const [openedCard, setOpenedCard] = useState(0);
  const [cards, setCards]=useState(RandomCards);
  const [deletedCards, setDeletedCards]=useState([]);
+ const [openedCards, setOpenedCards]=useState([]);
+
+ const isCardFlipped=(key)=>{
+  return openedCards.includes(key);
+ }
+
+ const onClickCard=(index)=>{
+  if(openedCards.length === 1){
+    setOpenedCards((prev)=>[...prev, index])
+  }else{
+    setOpenedCards([index]);
+  }
+ }
 
  const checkOpenedCards = (id) => {
   if(openedCard===0){
     setOpenedCard(id)
   }else{
     if(openedCard===id){
-      setDeletedCards(prev=>[...prev, id]);
-    }
+      setDeletedCards(prev=>[...prev, id]);}
     setOpenedCard(0);
   }
  } 
+
+
   return (
       <div className="container">
         <div className="wrap">
@@ -36,10 +50,13 @@ function Game({usersData, setUsersData}) {
                 cards.map((card, index)=>(
                   <Card 
                     key={index}
+                    index={index}
                     card={card}
                     isCardBlocked={deletedCards.includes(card.id)}
                     openedCard={openedCard}
-                    setOpenedCard={setOpenedCard}  
+                    isCardOpened={isCardFlipped(index)}
+                    setOpenedCard={setOpenedCard} 
+                    onClickCard={onClickCard} 
                     checkOpenedCards={checkOpenedCards}            
                   />
                 ))

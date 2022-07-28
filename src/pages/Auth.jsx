@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom"
-function Main({usersData, setUsersData}) {
+function Auth({usersData, setUsersData}) {
   const [userName, setUserName]= useState(usersData.length>0 ? usersData[0].name: "");
   const navigate = useNavigate();
   
@@ -36,4 +36,4 @@ function Main({usersData, setUsersData}) {
   )
 }
 
-export default Main;
+export default Auth;

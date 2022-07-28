@@ -5,20 +5,18 @@ body {
   	color: #222;
 }
 .game{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 200px;
 }
 label {
+
     -webkit-perspective: 1000px;
     perspective: 1000px;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     display: block;
     position: relative;
-    width: 16.6666%;
-    height: 200px;
     cursor: pointer;
     input {
         display: none;
@@ -80,4 +78,15 @@ label:hover :checked + .card {
 }
 .blocked-cards{
     opacity: 0;
+    animation: remove 1s ease-in-out;
+}
+@keyframes remove{
+    from{
+        opacity: 1;
+        transform: scale(1);
+    }
+    to{
+        transform: scale(0);
+        opacity: 0;
+    }
 }

@@ -1,36 +1,36 @@
 import { Route, Routes } from "react-router-dom";
-import Main from "./pages/Main.jsx";
+import Auth from "./pages/Auth.jsx";
 import Game from "./pages/Game.jsx";
 import LeaderBoard from "./pages/LeaderBoard.jsx";
 import { useEffect, useState } from "react";
+import {useNavigate} from "react-router-dom";
 
 function App() {
   const [usersData, setUsersData] = useState([]);
-  let cards = [];
+  const navigate = useNavigate();
+
   useEffect(() => {
     async function getData() {
-      // cards = await fetch("./db.json").then((resp) => resp.json());
-
       const users = await JSON.parse(localStorage.getItem("usersData"));
       setUsersData(users ?? []);
     }
     getData();
+    // if(usersData.length === 0) navigate("../auth", { replace: true });
   }, []);
 
   return (
     <>
       <Routes>
         <Route
-          path="/"
-          element={<Main usersData={usersData} setUsersData={setUsersData} />}
+          path="/auth"
+          element={<Auth usersData={usersData} setUsersData={setUsersData} />}
         />
         <Route
-          path="/game"
+          path="/"
           element={
             <Game
               usersData={usersData}
               setUsersData={setUsersData}
-              cards={cards}
             />
           }
         />
