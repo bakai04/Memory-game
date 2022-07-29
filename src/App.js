@@ -10,11 +10,7 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    async function getData() {
-      const users = await JSON.parse(localStorage.getItem("usersData"));
-      setUsersData(users ?? []);
-    }
-    getData();
+    setUsersData(JSON.parse(localStorage.getItem("usersData")) ?? []);
     // if(usersData.length === 0) navigate("../auth", { replace: true });
   }, []);
 

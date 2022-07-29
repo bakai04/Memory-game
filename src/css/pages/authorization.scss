@@ -13,6 +13,7 @@
         border-radius: 5px;
         background-color: #FFF;
         .authorization__title{
+            color:  black;
             font-size: 30px;
             margin-bottom: 20px;
         }
@@ -34,6 +35,13 @@
                 padding-left: 10px;
                 font-size: 16px;
                 margin-top: 10px;
+                background-color: #C38D9E ;
+                border-radius: 5px;
+                border: 0px;
+                transition: 0.2s ease-in-out;
+                &:hover{
+                    transform: scale(0.98);
+                }
             } 
         }
     }

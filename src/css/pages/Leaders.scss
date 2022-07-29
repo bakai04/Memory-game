@@ -60,7 +60,11 @@
             }
         }
     }
-
+    .sortBy{
+        display: flex;
+        justify-content: end;
+        margin-bottom: 15px;
+    }
     .leaders__inner {
         background-color: #FFF;
         padding: 20px;

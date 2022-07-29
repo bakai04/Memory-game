@@ -4,6 +4,7 @@
 @import "./pages/Header.scss";
 @import "./pages/resultPage.scss";
 @import "./pages/Leaders.scss";
+@import "./pages/sort.scss";
 
 *{
     box-sizing: border-box;
@@ -12,7 +13,7 @@
     font-family: 'Kdam Thmor Pro', sans-serif;
 }
 body{
-    background-color: #eee;
+    background-color: #FBE8A6;
 	min-height: 100%;
 }
 .container{

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Card from "../components/Card.jsx";
 import Header from '../components/Header.jsx';
 import ResultPage from '../components/ResultPage.jsx';
@@ -13,8 +13,7 @@ function shuffleCards(array) {
   }
   return array;
 }
-const RandomCards = shuffleCards([...data.cards, ...data.cards]); 
-
+const RandomCards = shuffleCards([...data.cards, ...data.cards]);   
 function Game({usersData, setUsersData}) {
  const [openedCard, setOpenedCard] = useState(0);
  const [cards, setCards]=useState(RandomCards);
@@ -28,18 +27,35 @@ function Game({usersData, setUsersData}) {
   return openedCards.includes(key);
  }
 
+ const closeDoubleCards=() => {
+  setTimeout(() => {
+    setOpenedCards([]);
+  }, 600);
+  }
+
+
  const onClickCard=(index)=>{
   setCount(count+1)
   if(openedCards.length === 1){
     setOpenedCards((prev)=>[...prev, index])
+    closeDoubleCards();
   }else{
     setOpenedCards([index]);
   }
  }
 
+ 
 const stopGame=()=>{
   setVisibleModal(true);
-} 
+  let user={
+    name: usersData[0].name,
+    count: (usersData[0].count<count && usersData[0].count !=0) ? usersData[0].count:count,
+    time: (usersData[0].time<seconds && usersData[0].time != 0) ? usersData[0].time:seconds,
+  }
+  localStorage.setItem("usersData",JSON.stringify([user, ...usersData.slice(1)]))
+  setUsersData([user, ...usersData.slice(1)]);
+}
+
 
 const playAgain=()=>{
   setVisibleModal(false);
@@ -50,17 +66,17 @@ const playAgain=()=>{
   setOpenedCard(0);
 }
 
-useEffect(() => {
- if(visibleModal) return
- const interval = setInterval(() => {
-   setSeconds(seconds => seconds + 1);
- }, 1000);
- return () => clearInterval(interval);
- }, []);
+// useEffect(() => {
+//  const interval = setInterval(() => {
+//    setSeconds(seconds => seconds + 1);
+//  }, 1000);
+//  if(visibleModal) clearInterval(interval)
+//  return () => clearInterval(interval);
+//  }, []);
 
 
   useEffect(()=>{
-    if(deletedCards.length===cards.length/2) stopGame();
+    if(deletedCards.length === cards.length/2) stopGame();
   },[deletedCards]);
 
 

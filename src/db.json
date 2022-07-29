@@ -9,56 +9,6 @@
         "name": "css3",
         "img": "https://i.ibb.co/w4dSj0c/photo-2022-07-28-17-51-31.jpg",
         "id": 2
-    },
-    {
-        "name": "html5",
-        "img": "https://i.ibb.co/W5fyhwL/photo-2022-07-28-17-51-35.jpg",
-        "id": 3
-    },
-    {
-        "name": "jquery",
-        "img": "https://i.ibb.co/qxVDR3g/photo-2022-07-28-17-51-38.jpg",
-        "id": 4
-    }, 
-    {
-        "name": "javascript",
-        "img": "https://i.ibb.co/wBhM1dz/photo-2022-07-28-17-51-41.jpg",
-        "id": 5
-    },
-    {
-        "name": "node",
-        "img": "https://i.ibb.co/YfFb7MP/photo-2022-07-28-17-51-26.jpg",
-        "id": 6
-    },
-    {
-        "name": "photoshop",
-        "img": "https://i.ibb.co/R9Qp6ML/photo-2022-07-28-17-51-23.jpg",
-        "id": 7
-    },
-    {
-        "name": "javascript",
-        "img": "https://i.ibb.co/V36yXMS/photo-2022-07-28-17-51-14.jpg",
-        "id": 8
-    },
-    {
-        "name": "node",
-        "img": "https://i.ibb.co/9whJ6b6/photo-2022-07-28-17-51-18.jpg",
-        "id": 9
-    },
-    {
-        "name": "photoshop",
-        "img": "https://i.ibb.co/V2jLn69/photo-2022-07-28-17-51-46.jpg",
-        "id": 10
-    },
-    {
-        "name": "node",
-        "img": "https://i.ibb.co/PzDqXK6/photo-2022-07-28-17-51-44.jpg",
-        "id": 11
-    },
-    {
-        "name": "photoshop",
-        "img": "https://i.ibb.co/3rRpRZ1/photo-2022-07-28-17-51-21.jpg",
-        "id": 12
     }
 ]
 }

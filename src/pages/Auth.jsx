@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom"
 function Auth({usersData, setUsersData}) {
-  const [userName, setUserName]= useState(usersData.length>0 ? usersData[0].name: "");
+  const [userName, setUserName]= useState("");
   const navigate = useNavigate();
   
   function onChangeInput(event){
@@ -12,7 +12,8 @@ function Auth({usersData, setUsersData}) {
     event.preventDefault();
     let userData={
       name: userName,
-      lastRecord: 0 
+      count: 0,
+      time: 0
     }
     setUsersData(prev=>[userData, ...prev]);
     localStorage.setItem("usersData", JSON.stringify([userData, ...usersData]));
