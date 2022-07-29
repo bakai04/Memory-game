@@ -1,62 +1,64 @@
 {
-    "cards":[{
+    "cards":[
+    {
         "name": "php",
-       "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/php-logo_1.png",
+       "img": "https://i.ibb.co/1Jdsq6T/photo-2022-07-28-17-51-29.jpg",
         "id": 1
     },
     {
         "name": "css3",
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/css3-logo.png",
+        "img": "https://i.ibb.co/w4dSj0c/photo-2022-07-28-17-51-31.jpg",
         "id": 2
     },
     {
         "name": "html5",
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/html5-logo.png",
+        "img": "https://i.ibb.co/W5fyhwL/photo-2022-07-28-17-51-35.jpg",
         "id": 3
     },
     {
         "name": "jquery",
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/jquery-logo.png",
+        "img": "https://i.ibb.co/qxVDR3g/photo-2022-07-28-17-51-38.jpg",
         "id": 4
     }, 
     {
         "name": "javascript",
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/js-logo.png",
+        "img": "https://i.ibb.co/wBhM1dz/photo-2022-07-28-17-51-41.jpg",
         "id": 5
     },
     {
         "name": "node",
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/nodejs-logo.png",
+        "img": "https://i.ibb.co/YfFb7MP/photo-2022-07-28-17-51-26.jpg",
         "id": 6
     },
     {
         "name": "photoshop",
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/photoshop-logo.png",
+        "img": "https://i.ibb.co/R9Qp6ML/photo-2022-07-28-17-51-23.jpg",
         "id": 7
     },
     {
-        "name": "python",
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/python-logo.png",
+        "name": "javascript",
+        "img": "https://i.ibb.co/V36yXMS/photo-2022-07-28-17-51-14.jpg",
         "id": 8
     },
     {
-        "name": "rails",
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/rails-logo.png",
+        "name": "node",
+        "img": "https://i.ibb.co/9whJ6b6/photo-2022-07-28-17-51-18.jpg",
         "id": 9
     },
     {
-        "name": "sass",
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sass-logo.png",
+        "name": "photoshop",
+        "img": "https://i.ibb.co/V2jLn69/photo-2022-07-28-17-51-46.jpg",
         "id": 10
     },
     {
-        "name": "sublime",
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sublime-logo.png",
+        "name": "node",
+        "img": "https://i.ibb.co/PzDqXK6/photo-2022-07-28-17-51-44.jpg",
         "id": 11
     },
     {
-        "name": "wordpress",
-        "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/wordpress-logo.png",
+        "name": "photoshop",
+        "img": "https://i.ibb.co/3rRpRZ1/photo-2022-07-28-17-51-21.jpg",
         "id": 12
-    }]
+    }
+]
 }

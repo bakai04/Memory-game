@@ -1,0 +1,22 @@
+.header{
+    display: flex;
+    align-items: center;
+    .header__inner{
+        display: flex;
+        padding: 20px;
+        background-color: #FFF;
+        margin-bottom: 10px;
+        .user-name{
+            font-size: 25px;
+            margin-left: 0;
+        }
+        .timer{
+            font-size: 25px;
+            margin-right: 0;
+        }
+        .count{
+            font-size: 25px;
+            margin: 0 auto;
+        }
+    }
+}

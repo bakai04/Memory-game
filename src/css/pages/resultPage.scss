@@ -1,0 +1,72 @@
+.result-page{
+    position: fixed;
+    z-index: 4;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .result-page__inner{
+        animation-name: scaling;
+        animation-duration: 0.6s;
+        padding: 50px;
+        background-color: #FFF;
+        border-radius: 5px;
+        width: 40vw;
+        margin: 0 auto;
+        text-align: center;
+        .result-page__title{
+            font-size: 40px;
+        }
+        .score,.time{
+            color: green;
+            font-size: 20px;
+            span{
+                margin-right: 10px;
+            }
+        }
+    
+        .record{
+            .record{
+                .record__title{
+                    font-size: 30px;
+                }
+            }
+        }
+
+        .result-page__btns{
+            display: flex;
+            flex-direction: column;
+            button {
+                width: 100%;
+                max-width: 300px;
+                padding: 16px;
+                border: 0px;
+                letter-spacing: 1.5px;
+                margin:10px auto 0 auto;
+                border-radius: 5px;
+                background: #0487B0;
+                color: #FFFFFF;
+                transition-duration: 0.3s;
+            }
+
+            button:hover {
+                transform: scale(0.98);
+            }
+        }
+    }
+}
+
+@keyframes scaling {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+
+}

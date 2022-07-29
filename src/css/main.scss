@@ -1,9 +1,15 @@
+@import 'https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap';
 @import "./pages/authorization.scss";
 @import "./pages/Game.scss";
+@import "./pages/Header.scss";
+@import "./pages/resultPage.scss";
+@import "./pages/Leaders.scss";
+
 *{
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    font-family: 'Kdam Thmor Pro', sans-serif;
 }
 body{
     background-color: #eee;

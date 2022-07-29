@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from "../components/Card.jsx";
+import Header from '../components/Header.jsx';
+import ResultPage from '../components/ResultPage.jsx';
 import data from "../db.json";
 
 function shuffleCards(array) {
@@ -18,18 +20,49 @@ function Game({usersData, setUsersData}) {
  const [cards, setCards]=useState(RandomCards);
  const [deletedCards, setDeletedCards]=useState([]);
  const [openedCards, setOpenedCards]=useState([]);
+ const [count, setCount]=useState(0);
+ const [seconds, setSeconds]=useState(0);
+ const [visibleModal, setVisibleModal]=useState(false);
 
  const isCardFlipped=(key)=>{
   return openedCards.includes(key);
  }
 
  const onClickCard=(index)=>{
+  setCount(count+1)
   if(openedCards.length === 1){
     setOpenedCards((prev)=>[...prev, index])
   }else{
     setOpenedCards([index]);
   }
  }
+
+const stopGame=()=>{
+  setVisibleModal(true);
+} 
+
+const playAgain=()=>{
+  setVisibleModal(false);
+  setDeletedCards([]);
+  setOpenedCards([]);
+  setCount(0);
+  setSeconds(0);
+  setOpenedCard(0);
+}
+
+useEffect(() => {
+ if(visibleModal) return
+ const interval = setInterval(() => {
+   setSeconds(seconds => seconds + 1);
+ }, 1000);
+ return () => clearInterval(interval);
+ }, []);
+
+
+  useEffect(()=>{
+    if(deletedCards.length===cards.length/2) stopGame();
+  },[deletedCards]);
+
 
  const checkOpenedCards = (id) => {
   if(openedCard===0){
@@ -42,7 +75,13 @@ function Game({usersData, setUsersData}) {
  } 
 
 
+
   return (
+    <>
+      <Header 
+        count={count}
+        seconds={seconds}
+      />
       <div className="container">
         <div className="wrap">
           <div className="game">
@@ -64,6 +103,16 @@ function Game({usersData, setUsersData}) {
           </div>
         </div>
       </div>
+      {
+        visibleModal? 
+        <ResultPage
+          time={seconds}
+          score={count}
+          playAgain={playAgain}
+        />
+        :""
+      }
+    </>
   )
 }
 
