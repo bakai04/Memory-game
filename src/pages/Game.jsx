@@ -2,56 +2,47 @@ import React, { useEffect, useRef, useState } from 'react';
 import Card from "../components/Card.jsx";
 import Header from '../components/Header.jsx';
 import ResultPage from '../components/ResultPage.jsx';
-import data from "../db.json";
 
-function shuffleCards(array) {
-  const length = array.length;
-  for (let i = length; i > 0; i--) {
-     const randomIndex = Math.floor(Math.random() * i);
-     const currentIndex = i - 1;
-     [array[randomIndex],array[currentIndex]]=[array[currentIndex], array[randomIndex]]
-  }
-  return array;
-}
-const RandomCards = shuffleCards([...data.cards, ...data.cards]);   
-function Game({usersData, setUsersData}) {
+
+
+function Game({usersData,cards, setUsersData, activeLevel, Level}) {
  const [openedCard, setOpenedCard] = useState(0);
- const [cards, setCards]=useState(RandomCards);
  const [deletedCards, setDeletedCards]=useState([]);
- const [openedCards, setOpenedCards]=useState([]);
+ const [flippingCards, setFlippingCards]=useState([]);
  const [count, setCount]=useState(0);
  const [seconds, setSeconds]=useState(0);
  const [visibleModal, setVisibleModal]=useState(false);
 
  const isCardFlipped=(key)=>{
-  return openedCards.includes(key);
+  return flippingCards.includes(key);
  }
+
 
  const closeDoubleCards=() => {
   setTimeout(() => {
-    setOpenedCards([]);
+    setFlippingCards([]);
+    setOpenedCard(0);
   }, 600);
   }
 
 
  const onClickCard=(index)=>{
   setCount(count+1)
-  if(openedCards.length === 1){
-    setOpenedCards((prev)=>[...prev, index])
+  if(flippingCards.length === 1){
+    setFlippingCards((prev)=>[...prev, index])
     closeDoubleCards();
   }else{
-    setOpenedCards([index]);
+    setFlippingCards([index]);
   }
  }
 
  
 const stopGame=()=>{
   setVisibleModal(true);
-  let user={
-    name: usersData[0].name,
-    count: (usersData[0].count<count && usersData[0].count !=0) ? usersData[0].count:count,
-    time: (usersData[0].time<seconds && usersData[0].time != 0) ? usersData[0].time:seconds,
-  }
+  let user=usersData[0];
+  user.levels[activeLevel].time= (user.levels[activeLevel].time<seconds && user.levels[activeLevel].time !=0) ? user.levels[activeLevel].time:seconds;
+  user.levels[activeLevel].count= (user.levels[activeLevel].count<count && user.levels[activeLevel].count !=0) ? user.levels[activeLevel].count:count;
+
   localStorage.setItem("usersData",JSON.stringify([user, ...usersData.slice(1)]))
   setUsersData([user, ...usersData.slice(1)]);
 }
@@ -60,7 +51,7 @@ const stopGame=()=>{
 const playAgain=()=>{
   setVisibleModal(false);
   setDeletedCards([]);
-  setOpenedCards([]);
+  setFlippingCards([]);
   setCount(0);
   setSeconds(0);
   setOpenedCard(0);
@@ -85,7 +76,8 @@ const playAgain=()=>{
     setOpenedCard(id)
   }else{
     if(openedCard===id){
-      setDeletedCards(prev=>[...prev, id]);}
+      setDeletedCards(prev=>[...prev, id]);
+    }
     setOpenedCard(0);
   }
  } 
@@ -93,14 +85,14 @@ const playAgain=()=>{
 
 
   return (
-    <>
-      <Header 
-        count={count}
-        seconds={seconds}
-      />
+    <div className='game'>
       <div className="container">
+        <Header 
+          count={count}
+          seconds={seconds}
+        />
         <div className="wrap">
-          <div className="game">
+          <div className={"game__inner " + Level[activeLevel].class}>
               {
                 cards.map((card, index)=>(
                   <Card 
@@ -112,6 +104,7 @@ const playAgain=()=>{
                     isCardOpened={isCardFlipped(index)}
                     setOpenedCard={setOpenedCard} 
                     onClickCard={onClickCard} 
+                    setFlippingCards={setFlippingCards}
                     checkOpenedCards={checkOpenedCards}            
                   />
                 ))
@@ -128,7 +121,7 @@ const playAgain=()=>{
         />
         :""
       }
-    </>
+    </div>
   )
 }
 

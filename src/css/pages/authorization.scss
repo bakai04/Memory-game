@@ -1,48 +1,35 @@
 .authorization {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    width: fit-content;
+    border-radius: 5px;
 
-    .authorization__inner {
-        margin: 0 auto;
-        text-align: center;
-        width: fit-content;
-        box-shadow: 10px 15px 10px -15px #111;
-        padding: 50px;
-        border-radius: 5px;
-        background-color: #FFF;
-        .authorization__title{
-            color:  black;
-            font-size: 30px;
-            margin-bottom: 20px;
+    .authorization__form {
+        display: flex;
+        flex-direction: column;
+        .form__name {
+            width: 300px;
+            height: 40px;
+            padding-left: 10px;
+            font-size: 16px;
+            &::placeholder {
+                font-size: 16px;
+            }
         }
-        .authorization__form{
-            display: flex;
-            flex-direction: column;
-            .form__name{
-                width: 250px;
-                height: 40px;
-                padding-left: 10px;
-                font-size: 16px;
-                &::placeholder{
-                    font-size: 16px;
-                }
-            } 
-            .startBtn{
-                width: 250px;
-                height: 40px;
-                padding-left: 10px;
-                font-size: 16px;
-                margin-top: 10px;
-                background-color: #C38D9E ;
-                border-radius: 5px;
-                border: 0px;
-                transition: 0.2s ease-in-out;
-                &:hover{
-                    transform: scale(0.98);
-                }
-            } 
+        .signIn {
+            width: 300px;
+            height: 40px;
+            padding-left: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            background-color: #F4976C ;
+            border-radius: 5px;
+            border: 0px;
+            color:  #303C6C;
+            transition: 0.2s ease-in-out;
+            &:hover {
+                transform: scale(0.95);
+            }
         }
     }
 }

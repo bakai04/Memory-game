@@ -5,6 +5,7 @@
 @import "./pages/resultPage.scss";
 @import "./pages/Leaders.scss";
 @import "./pages/sort.scss";
+@import "./pages/Home.scss";
 
 *{
     box-sizing: border-box;
@@ -17,7 +18,7 @@ body{
 	min-height: 100%;
 }
 .container{
-    max-width: 1200px;
+    max-width: fit-content;
     width: 100%;
     margin: 0 auto;
 }

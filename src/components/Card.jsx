@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
 
-function Card({index,card, isCardBlocked, isCardOpened, onClickCard, checkOpenedCards, openedCard, setOpenedCard}){
+function Card({index,card, isCardBlocked,setFlippingCards, isCardOpened, onClickCard, checkOpenedCards, openedCard, setOpenedCard}){
 
   const handleClick = (e)=>{
-    if(e.target.checked){
+    if(!isCardOpened){
       checkOpenedCards(card.id);
+      onClickCard(index)
     }else{
-      if(openedCard === card.id) setOpenedCard(0);
+      if(openedCard === card.id) {
+        setOpenedCard(0)
+        setFlippingCards([])
+      }
     }
   }
+  
   return (
     <label className={isCardBlocked? "blocked-cards" : ""}>
-    <input type="checkbox" checked={isCardOpened} onClick={()=>{onClickCard(index)}} className={card.id} onChange={handleClick}/>
+    <input type="checkbox" checked={isCardOpened} className={card.id} onChange={handleClick}/>
     <div className="card">
         <div className="front">
           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/codepen-logo.png"></img>

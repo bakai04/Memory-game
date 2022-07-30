@@ -1,25 +1,21 @@
 .header{
     display: flex;
-    align-items: center;
-    .header__inner{
-        display: flex;
-        padding: 20px;
-        background-color:  #FFF;
-        margin-bottom: 10px;
-        .user-name{
-            color: #85DCB1;
-            font-size: 25px;
-            margin-left: 0;
-        }
-        .timer{
-            color: #85DCB1;
-            font-size: 25px;
-            margin-right: 0;
-        }
-        .count{
-            color: #85DCB1;
-            font-size: 25px;
-            margin: 0 auto;
-        }
+    padding: 10px 20px;
+    background-color:  #FFF;
+    margin-bottom: 5px ;
+    .user-name{
+        color: #85DCB1;
+        font-size: 25px;
+        margin-left: 0;
+    }
+    .timer{
+        color: #85DCB1;
+        font-size: 25px;
+        margin-right: 0;
+    }
+    .count{
+        color: #85DCB1;
+        font-size: 25px;
+        margin: 0 auto;
     }
 }
