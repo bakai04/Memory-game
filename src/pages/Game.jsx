@@ -57,13 +57,13 @@ const playAgain=()=>{
   setOpenedCard(0);
 }
 
-// useEffect(() => {
-//  const interval = setInterval(() => {
-//    setSeconds(seconds => seconds + 1);
-//  }, 1000);
-//  if(visibleModal) clearInterval(interval)
-//  return () => clearInterval(interval);
-//  }, []);
+useEffect(() => {
+ const interval = setInterval(() => {
+   setSeconds(seconds => seconds + 1);
+ }, 1000);
+ if(visibleModal) clearInterval(interval)
+ return () => clearInterval(interval);
+ }, []);
 
 
   useEffect(()=>{

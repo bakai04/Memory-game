@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useNavigate} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import logo from "../img/logo.png";
 
 function Main({usersData, setUsersData, activeLevel, setActiveLevel, Level}) {
@@ -58,6 +58,7 @@ function Main({usersData, setUsersData, activeLevel, setActiveLevel, Level}) {
                         ))}
                     </div>
                     <button className='main__btn' onClick={addNewUser}>Start</button>
+                    <Link to="/leaders"><p className='main__leaders'>Leaders</p></Link>
                 </div>
             </div>
         </div>

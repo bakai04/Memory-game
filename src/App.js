@@ -63,6 +63,8 @@ function App() {
               usersData={usersData}
               setUsersData={setUsersData}
               activeLevel={activeLevel}
+              setActiveLevel={setActiveLevel}
+              Level={Level}
             />
           }
         />

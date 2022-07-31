@@ -1,16 +1,15 @@
 .leaders {
     padding-top: 15px;
     width: 100%;
-
+    .filtersBy{
+        display: flex;
+        align-items:baseline;
+        gap: 20px;
+        margin-bottom: 10px;
+    }
     a {
         text-decoration: none;
     }
-
-    .back-to-main {
-        margin-left: 15px;
-        color: black;
-    }
-
     .leaders__title {
         text-align: center;
     }
@@ -63,7 +62,6 @@
     .sortBy{
         display: flex;
         justify-content: end;
-        margin-bottom: 15px;
     }
     .leaders__inner {
         background-color: #FFF;

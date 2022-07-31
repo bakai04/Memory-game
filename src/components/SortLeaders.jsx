@@ -1,6 +1,6 @@
 import React, {  useEffect, useRef, useState } from 'react'
 
-function SortLeaders({items}) {
+function SortLeaders({items, setActiveSort, activeSort}) {
     const [visiblePopup, setVisiblePopup] = useState(false);
     const sortRef = useRef();
 
@@ -8,8 +8,9 @@ function SortLeaders({items}) {
         setVisiblePopup(!visiblePopup);
     }
 
-    const onSelectItem=(index, type)=>{
+    const onSelectItem=(index)=>{
         setVisiblePopup(false);
+        setActiveSort(index);
     }
 
     const handleOutsideClick = (e) => {
@@ -38,14 +39,14 @@ function SortLeaders({items}) {
                         fill="#2C2C2C"
                     />
                 </svg>
-                <b>Сортировка по:</b>
-                <span onClick={toggleVisiblePopup}>asdasd</span>
+                <b onClick={toggleVisiblePopup}>Сортировка по:</b>
+                <span onClick={toggleVisiblePopup}>{items[activeSort].name}</span>
             </div>
             {visiblePopup &&
                 (<div className="sort__popup">
                     <ul>
                         {items.map((item, index)=>(
-                            <li className="active">{item.name}</li>
+                            <li className={activeSort===index? "active ":""} onClick={()=>{onSelectItem(index)}}>{item.name}</li>
                         ))}
                     </ul>
                 </div>)}
