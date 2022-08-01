@@ -1,8 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from "../components/Card.jsx";
 import Header from '../components/Header.jsx';
 import ResultPage from '../components/ResultPage.jsx';
-
+import PrevPageBtn from "../img/93634.png";
+import {Link} from "react-router-dom";
+import getMinimum from '../moduls/getMinimum.js';
+import translateSeconds from '../moduls/translateSeconds.js';
 
 
 function Game({usersData,cards, setUsersData, activeLevel, Level}) {
@@ -40,8 +43,9 @@ function Game({usersData,cards, setUsersData, activeLevel, Level}) {
 const stopGame=()=>{
   setVisibleModal(true);
   let user=usersData[0];
-  user.levels[activeLevel].time= (user.levels[activeLevel].time<seconds && user.levels[activeLevel].time !=0) ? user.levels[activeLevel].time:seconds;
-  user.levels[activeLevel].count= (user.levels[activeLevel].count<count && user.levels[activeLevel].count !=0) ? user.levels[activeLevel].count:count;
+  user.levels[activeLevel].time= getMinimum(user.levels[activeLevel].time, seconds)
+  user.levels[activeLevel].count= getMinimum(user.levels[activeLevel].count, count)
+  user.levels[activeLevel].score= getMinimum(user.levels[activeLevel].score, (count*seconds))
 
   localStorage.setItem("usersData",JSON.stringify([user, ...usersData.slice(1)]))
   setUsersData([user, ...usersData.slice(1)]);
@@ -57,13 +61,14 @@ const playAgain=()=>{
   setOpenedCard(0);
 }
 
+
 useEffect(() => {
- const interval = setInterval(() => {
-   setSeconds(seconds => seconds + 1);
- }, 1000);
- if(visibleModal) clearInterval(interval)
- return () => clearInterval(interval);
- }, []);
+  const interval = setInterval(() => {
+    setSeconds(seconds => seconds + 1);
+  }, 1000);
+  if(visibleModal) clearInterval(interval)
+  return () => clearInterval(interval);
+  }, [visibleModal]);;
 
 
   useEffect(()=>{
@@ -87,6 +92,7 @@ useEffect(() => {
   return (
     <div className='game'>
       <div className="container">
+        <Link to="/"><img src={PrevPageBtn} className="prev__page" alt="logo"/></Link>
         <Header 
           count={count}
           seconds={seconds}
@@ -115,8 +121,8 @@ useEffect(() => {
       {
         visibleModal? 
         <ResultPage
-          time={seconds}
-          score={count}
+          seconds={seconds}
+          count={count}
           playAgain={playAgain}
         />
         :""

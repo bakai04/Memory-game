@@ -1,37 +1,32 @@
 import React, { useState } from 'react';
 import {Link, useNavigate} from "react-router-dom"
 import logo from "../img/logo.png";
+import checkHaveUser from '../moduls/checkHaveUser';
 
 function Main({usersData, setUsersData, activeLevel, setActiveLevel, Level}) {
     const [userName, setUserName] = useState("");
+    const [isRequired, setIsRequired] = useState(true);
     const navigate = useNavigate();
 
     function onChangeInput(event){
       setUserName(event.target.value)
+      if(event.target.value===""){
+        setIsRequired(false)
+      }else{
+        setIsRequired(true)
+      }
     }
   
     function addNewUser(event){
       event.preventDefault();
-      let userData={
-        name: userName,
-        levels:[
-          {
-            time: 0,
-            count: 0,
-          },
-          {
-            time: 0,
-            count: 0,
-          },
-          {
-            time: 0,
-            count: 0,
-          }
-        ]
+      if(userName.length>0) {
+        const newUsersData=checkHaveUser(usersData, userName);
+        setUsersData(newUsersData)
+        localStorage.setItem("usersData", JSON.stringify(newUsersData));
+        navigate("../game", { replace: true })
+      }else{
+        setIsRequired(false)
       }
-      setUsersData(prev=>[userData, ...prev]);
-      localStorage.setItem("usersData", JSON.stringify([userData, ...usersData]));
-      if(userName.length>0) navigate("../game", { replace: true })
     }
 
   return (
@@ -45,6 +40,7 @@ function Main({usersData, setUsersData, activeLevel, setActiveLevel, Level}) {
                     <div className='authorization'>
                       <form className='authorization__form' onSubmit={addNewUser}>
                         <input className="form__name" value={userName} onChange={onChangeInput} placeholder='name' required></input>
+                        <p className={isRequired? "d-none":"error"}>поле обязательно*</p>
                       </form>
                     </div>
 

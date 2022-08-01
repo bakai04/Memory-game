@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-
+import React, { useEffect, useState } from 'react';
+import translateSeconds from "../moduls/translateSeconds";
 function Header({count, seconds}) {
-    let second = seconds;
+    let time = translateSeconds(seconds) ;
   return (
       <div className="header">
           <div className="user-name">User</div>
           <div className="count">{count}</div>
-          <div className="timer">{ Math.floor((second/60)%60)+":"+second%60} </div>
+          <div className="timer">{time} </div>
       </div>
   )
 }

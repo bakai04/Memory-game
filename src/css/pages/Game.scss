@@ -25,6 +25,7 @@
                 -webkit-transition: all 600ms;
                 transition: all 600ms;
                 z-index: 20;
+                user-select: none;
             
                 .front,.back{
                     width: 100%;
@@ -75,9 +76,9 @@ label:hover :checked + .card {
 }
 
 .blocked-cards{
-    opacity: 0;
+    opacity: 0;     
     animation: remove 1s ease-in-out;
-    cursor: none;
+    transform: scale(0);
 }
 .first{
     grid-template-columns: repeat(3, 100px);

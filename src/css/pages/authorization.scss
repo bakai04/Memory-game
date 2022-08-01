@@ -16,20 +16,12 @@
                 font-size: 16px;
             }
         }
-        .signIn {
-            width: 300px;
-            height: 40px;
-            padding-left: 10px;
-            font-size: 16px;
-            margin-top: 10px;
-            background-color: #F4976C ;
-            border-radius: 5px;
-            border: 0px;
-            color:  #303C6C;
-            transition: 0.2s ease-in-out;
-            &:hover {
-                transform: scale(0.95);
-            }
+        .error{
+            color: red;
+            text-align: left;
+        }
+        .d-none{
+            display: none;
         }
     }
 }
