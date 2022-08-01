@@ -1,12 +1,15 @@
 @import 'https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap';
-@import "./pages/authorization.scss";
 @import "./pages/Game.scss";
-@import "./pages/Header.scss";
-@import "./pages/resultPage.scss";
-@import "./pages/Leaders.scss";
-@import "./pages/sort.scss";
 @import "./pages/Home.scss";
-@import "./pages/filters.scss";
+@import "./pages/Leaders.scss";
+
+@import "./components/authorization.scss";
+@import "./components/header.scss";
+@import "./components/resultPage.scss";
+@import "./components/sort.scss";
+@import "./components/filters.scss";
+
+@import "./adaptive/mainOfAdaptive.scss";
 *{
     box-sizing: border-box;
     margin: 0px;

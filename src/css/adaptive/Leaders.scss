@@ -1,0 +1,21 @@
+ @media (max-width: 600px){
+    .leaders {
+        .filtersBy{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .filters{
+        .filters__item{
+            width: 150px;
+        }
+    }
+ }
+ @media (max-width: 500px){
+    .filters{
+        .filters__item{
+            width: calc(85vw / 3);
+        }
+    }
+ }

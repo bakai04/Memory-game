@@ -1,0 +1,16 @@
+@media(max-width: 576px){
+    .main{
+        .main__inner{
+            .main__btn{
+                width: 250px;
+            }
+        }
+    }    
+    .authorization {
+        .authorization__form {
+            .form__name {
+                width: 250px;
+            }
+        }
+    }
+}

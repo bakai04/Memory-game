@@ -1,0 +1,41 @@
+@media(max-width: 768px){
+    .game{
+        .game__inner{
+            gap: 10px;
+        }
+    }
+    .first{
+        grid-template-columns: repeat(3, calc(45vw / 3));
+        grid-template-rows: repeat(4, calc(45vw / 3));
+    }
+    .second{
+        grid-template-columns: repeat(4, calc(60vw / 4));
+        grid-template-rows: repeat(4, calc(60vw / 4));
+    }
+    
+    .third{
+        grid-template-columns: repeat(5, calc(60vw / 5));
+        grid-template-rows: repeat(4, calc(60vw / 5));
+    }
+}
+
+@media(max-width: 576px){
+    .header{
+        .user-name,.timer,.count{
+            font-size: 20px;
+        }
+    }
+    .first{
+        grid-template-columns: repeat(3, calc(55vw / 3));
+        grid-template-rows: repeat(4, calc(55vw / 3));
+    }
+    .second{
+        grid-template-columns: repeat(4, calc(80vw / 4));
+        grid-template-rows: repeat(4, calc(80vw / 4));
+    }
+    
+    .third{
+        grid-template-columns: repeat(5, calc(80vw / 5));
+        grid-template-rows: repeat(4, calc(80vw / 5));
+    }
+}

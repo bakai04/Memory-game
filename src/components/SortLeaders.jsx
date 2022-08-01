@@ -1,6 +1,6 @@
-import React, {  useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
-function SortLeaders({items, setActiveSort, activeSort}) {
+function SortLeaders({ items, setActiveSort, activeSort }) {
     const [visiblePopup, setVisiblePopup] = useState(false);
     const sortRef = useRef();
 
@@ -8,7 +8,7 @@ function SortLeaders({items, setActiveSort, activeSort}) {
         setVisiblePopup(!visiblePopup);
     }
 
-    const onSelectItem=(index)=>{
+    const onSelectItem = (index) => {
         setVisiblePopup(false);
         setActiveSort(index);
     }
@@ -19,7 +19,6 @@ function SortLeaders({items, setActiveSort, activeSort}) {
         }
     }
 
-    // const activelabel=items.find(obj=>obj.type===activeSortPopup);
     useEffect(() => {
         document.body.addEventListener("click", handleOutsideClick)
     }, [])
@@ -27,7 +26,7 @@ function SortLeaders({items, setActiveSort, activeSort}) {
     return (
         <div className="sort" ref={sortRef}>
             <div className="sort__label">
-                <svg className={!visiblePopup ? "rotaded":""}
+                <svg className={!visiblePopup ? "rotaded" : ""}
                     width="10"
                     height="6"
                     viewBox="0 0 10 6"
@@ -45,8 +44,8 @@ function SortLeaders({items, setActiveSort, activeSort}) {
             {visiblePopup &&
                 (<div className="sort__popup">
                     <ul>
-                        {items.map((item, index)=>(
-                            <li className={activeSort===index? "active ":""} onClick={()=>{onSelectItem(index)}}>{item.name}</li>
+                        {items.map((item, index) => (
+                            <li className={activeSort === index ? "active " : ""} onClick={() => { onSelectItem(index) }}>{item.name}</li>
                         ))}
                     </ul>
                 </div>)}

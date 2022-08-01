@@ -4,7 +4,7 @@ import LeaderBoard from "./pages/LeaderBoard.jsx";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Main from "./pages/Main.jsx";
-import getCards from "./moduls/getCards.js";
+import getCards from "./utils/getCards.js";
 
 function App() {
   const [usersData, setUsersData] = useState([]);
