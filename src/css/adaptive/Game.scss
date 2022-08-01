@@ -1,4 +1,17 @@
+@media(max-width: 992px){
+    .result-page{
+        .result-page__inner{
+            width: 50vw;
+        }
+    }
+}
+
 @media(max-width: 768px){
+    .result-page{
+        .result-page__inner{
+            width: 70vw;
+        }
+    }
     .game{
         .game__inner{
             gap: 10px;
@@ -20,6 +33,15 @@
 }
 
 @media(max-width: 576px){
+    .result-page{
+        .result-page__inner{
+            padding: 40px;
+            width: 90vw;
+            .result-page__title{
+                font-size: 30px;
+            }
+        }
+    }
     .header{
         .user-name,.timer,.count{
             font-size: 20px;
