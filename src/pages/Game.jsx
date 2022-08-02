@@ -24,12 +24,12 @@ function Game({ usersData, cards, setUsersData, activeLevel, Level }) {
     setTimeout(() => {
       setFlippingCards([]);
       setOpenedCard(0);
+      setCount(count + 1);
     }, 600);
   }
 
 
   const onClickCard = (index) => {
-    setCount(count + 1)
     if (flippingCards.length === 1) {
       setFlippingCards((prev) => [...prev, index])
       closeDoubleCards();
@@ -65,13 +65,17 @@ function Game({ usersData, cards, setUsersData, activeLevel, Level }) {
     const interval = setInterval(() => {
       setSeconds(seconds => seconds + 1);
     }, 1000);
+
     if (visibleModal) clearInterval(interval)
     return () => clearInterval(interval);
-  }, [visibleModal]);;
+  }, [visibleModal]);
 
 
   useEffect(() => {
-    if (deletedCards.length === cards.length / 2) stopGame();
+    if (deletedCards.length === cards.length / 2){
+      cards=0;
+      stopGame()
+    };
   }, [deletedCards]);
 
 

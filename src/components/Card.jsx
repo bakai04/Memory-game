@@ -6,11 +6,6 @@ function Card({ index, card, isCardBlocked, setFlippingCards, isCardOpened, onCl
     if (!isCardOpened) {
       checkOpenedCards(card.id);
       onClickCard(index)
-    } else {
-      if (openedCard === card.id) {
-        setOpenedCard(0)
-        setFlippingCards([])
-      }
     }
   }
 
