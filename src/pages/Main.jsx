@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom"
 import logo from "../img/logo.png";
 import checkHaveUser from '../utils/checkHaveUser';
@@ -17,8 +17,13 @@ function Main({ usersData, setUsersData, activeLevel, setActiveLevel, Level }) {
     }
   }
 
+  useEffect(()=>{
+    setUserName(usersData.length===0 ? "": usersData[0].name)
+  },[usersData])
+
   function addNewUser(event) {
     event.preventDefault();
+  
     if (userName.length > 0) {
       const newUsersData = checkHaveUser(usersData, userName);
       setUsersData(newUsersData)

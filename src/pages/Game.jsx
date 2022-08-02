@@ -93,6 +93,7 @@ function Game({ usersData, cards, setUsersData, activeLevel, Level }) {
       <div className="container">
         <Link to="/"><img src={PrevPageBtn} className="prev__page" alt="logo" /></Link>
         <Header
+          userName={usersData[0].name}
           count={count}
           seconds={seconds}
         />

@@ -30,6 +30,7 @@ function App() {
   useEffect(() => {
     setUsersData(JSON.parse(localStorage.getItem("usersData")) ?? []);
   }, []);
+  console.log(usersData)
   return (
     <>
       <Routes>
