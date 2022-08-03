@@ -41,7 +41,7 @@ function LeaderBoard({ usersData, setUsersData, activeLevel, setActiveLevel, Lev
               <p className='column__name'>name</p>
               <p>{sortItem[activeSort].name}</p>
             </div>
-            <ol className='leaders__list'>
+            <ol className='leaders__list' id='style-7'>
               {
                 filtersUsers.map(item => (
                   item.levels[activeLevel][sortItem[activeSort].type] > 0 ?

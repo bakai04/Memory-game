@@ -13,6 +13,7 @@ function ResultPage({ count, seconds, playAgain }) {
           <div className="time"><span>Time:</span>{translateSeconds(seconds)}</div>
           <div className="result-page__btns">
             <Link to="/leaders"><button>Leaders</button></Link>
+            <Link to="/"><button>Main</button></Link>
             <button onClick={() => { playAgain() }}>Play again</button>
           </div>
         </div>

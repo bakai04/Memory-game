@@ -1,6 +1,8 @@
 .leaders {
     padding-top: 15px;
     width: 100%;
+    height: 100vh;
+    padding-bottom: 10px;
     .filtersBy{
         display: flex;
         align-items: baseline;
@@ -84,6 +86,9 @@
         }
 
         .leaders__list {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 60vh;
             padding-left: 20px;
             li {
                 margin-top: 5px;
@@ -120,4 +125,26 @@
 }
 .prev__page{
     width: 30px;
+}
+#style-7::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+#style-7::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+#style-7::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, #B4DFE5),
+    )
 }
