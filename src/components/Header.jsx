@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import translateSeconds from "../utils/translateSeconds";
 function Header({userName, count, seconds }) {
     let time = translateSeconds(seconds);
+    
     return (
         <div className="header">
             <div className="user-name">{userName}</div>

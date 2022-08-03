@@ -65,7 +65,6 @@ function Game({ usersData, cards, setUsersData, activeLevel, Level }) {
     const interval = setInterval(() => {
       setSeconds(seconds => seconds + 1);
     }, 1000);
-
     if (visibleModal) clearInterval(interval)
     return () => clearInterval(interval);
   }, [visibleModal]);
@@ -97,7 +96,7 @@ function Game({ usersData, cards, setUsersData, activeLevel, Level }) {
       <div className="container">
         <Link to="/"><img src={PrevPageBtn} className="prev__page" alt="logo" /></Link>
         <Header
-          userName={usersData[0].name}
+          userName={usersData.length>0 ? usersData[0].name : ""}
           count={count}
           seconds={seconds}
         />
